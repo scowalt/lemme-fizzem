@@ -33,9 +33,7 @@ def find_dir(root_folder, rex):
 			full_dir = os.path.join(root,d)
 			result = rex.search(full_dir)
 			if result:
-				print "version = " + str(result.group('version'))
-				print "language = " + str(result.group('language'))
-				print full_dir
+				backup_files()
 
 # http://stackoverflow.com/a/13068033/1222411
 def find_dir_in_all_drives(dir_name):
@@ -48,4 +46,4 @@ def find_dir_in_all_drives(dir_name):
 	# 	find_dir( drive, rex )
 
 # http://stackoverflow.com/a/9269316/1222411
-find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-z]{2}\_[A-Z]{2}?)")
+find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-z]{2}\_[A-Z]{2}?)\\[Cc]hampions")
