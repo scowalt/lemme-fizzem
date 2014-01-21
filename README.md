@@ -1,5 +1,6 @@
 # Lemme Fizz'Em!
 
+The goal of this project is to automatically replace every champion's selection sound with the classic "Lemme At'em" of Fizz.
 
 ### How to Build
 
