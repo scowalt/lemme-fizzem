@@ -41,4 +41,4 @@ def find_dir_in_all_drives(dir_name):
 		find_dir( drive, rex )
 
 # http://stackoverflow.com/a/9269316/1222411
-find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\")
+find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-zA-Z\_]+?)")
