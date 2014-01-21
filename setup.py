@@ -1,4 +1,8 @@
-from distutils.core import setup
-import py2exe
+from cx_Freeze import setup, Executable
 
-setup(console=['main.py'])
+setup(
+	name = "Lemme Fizz'em",
+	version = "0.0.1",
+	description = "More Fizz in your LoL",
+	executables=[Executable("main.py")]
+)
