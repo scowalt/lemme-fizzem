@@ -36,9 +36,14 @@ def restore_files(root_folder):
 				new_f = f[:(len(f) - 4)] # chop off .bak extension
 				try:
 					os.remove(os.path.join(root, new_f))
-				except:
+				except WindowsError as e:
+					print str(e)
 					pass
-				os.rename(os.path.join(root, f), os.path.join(root, new_f)) #restore file
+				try:
+					os.rename(os.path.join(root, f), os.path.join(root, new_f)) #restore file
+				except WindowsError as e:
+					print str(e)
+					pass
 
 def backup_files(root_folder):
 	rex = re.compile(r"^.+\.(bak)")
