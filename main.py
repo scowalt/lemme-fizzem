@@ -2,6 +2,8 @@ import os
 import re
 import win32api
 
+CHAMPION = "Fizz"
+
 def restore_files(root_folder):
 	rex = re.compile(r"^.*\.(bak)")
 	# delete all non-backup files
@@ -30,6 +32,8 @@ def find_dir(root_folder, rex):
 			full_dir = root + d
 			result = rex.search(full_dir)
 			if result:
+				print "version = " + str(result.group('version'))
+				print "language = " + str(result.group('language'))
 				print os.path.join(root,d)
 
 # http://stackoverflow.com/a/13068033/1222411
@@ -41,4 +45,4 @@ def find_dir_in_all_drives(dir_name):
 		find_dir( drive, rex )
 
 # http://stackoverflow.com/a/9269316/1222411
-find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-zA-Z\_]+?)")
+find_dir_in_all_drives(r"lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-z]{2}\_[A-Z]{2}?)")
