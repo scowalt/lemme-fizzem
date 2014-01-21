@@ -2,6 +2,12 @@
 
 The goal of this project is to automatically replace every champion's selection sound with the classic "Lemme At'em" of Fizz.
 
+### Usage
+
+	- `main.exe Fizz`
+	- `main.exe DrMundo`
+	- `main.exe restore`
+
 ### How to Build
 
    1. Install Python 2.7.x
