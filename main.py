@@ -3,15 +3,20 @@ import re
 import win32api
 
 def restore_files(root_folder):
+	rex = re.compile(r"^.*\.(bak)")
+	# delete all non-backup files
 	for root,dirs,files in os.walk(root_folder):
 		for f in files:
-			rex = re.compile(r"^.*\.(bak)")
+			result = rex.search(f)
+			if not result:
+				os.remove(root+f) # delete non-bacup files
+	# restore backed-up files
+	for root,dirs,files in os.walk(root_folder):
+		for f in files:
 			result = rex.search(f)
 			if result:
 				new_f = f[:(len(f) - 4)] # chop off .bak extension
-				os.rename(root+f, root+new_f)
-			else:
-				os.remove(root+f) # delete non-bacup files
+				os.rename(root+f, root+new_f) #restore file
 
 def backup_files(root_folder):
 	for root,dirs,files in os.walk(root_folder):
