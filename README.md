@@ -1,6 +1,6 @@
 # Lemme Fizz'Em!
 
-The goal of this project is to automatically replace every champion's selection sound with the classic "Lemme At'em" of Fizz.
+The goal of this project was to automatically replace every champion's selection sound with the classic "Lemme At'em" of Fizz. It also works for any other champion's selection sound.
 
 ## [Download](https://github.com/scowalt/lemme-fizzem/releases)
 
@@ -21,9 +21,11 @@ The goal of this project is to automatically replace every champion's selection 
 
 ### How to Build
 
+If you don't trust my shady executable and want to build the script yourself, here's how!
+
   1. Install Python 2.7.x
   2. Install pyinstaller
-  3. Run `pyinstaller main.py` in the project directory
+  3. Run `pyinstaller main.py` in the project directory, with the `--onefile` flag for a single executable
 
 ### Changelog
 
