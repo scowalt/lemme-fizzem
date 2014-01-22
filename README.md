@@ -2,6 +2,8 @@
 
 The goal of this project is to automatically replace every champion's selection sound with the classic "Lemme At'em" of Fizz.
 
+## [Download](https://github.com/scowalt/lemme-fizzem/releases)
+
 ### Usage
 
   - `main.exe Fizz`
@@ -16,4 +18,4 @@ The goal of this project is to automatically replace every champion's selection 
 
 ### Changelog
 
-  - **v0.0.1** - Initially release
+  - **v0.0.1** - Initial release
