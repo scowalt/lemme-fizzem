@@ -5,7 +5,7 @@ import sys
 import win32api
 
 DIRECTORY_REGEX = r"RADS\\projects\\lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-z]{2}\_[A-Z]{2}?)\\[Cc]hampions"
-BAD_REGEX = r"\\\$RECYCLE\.BIN\\"
+BAD_REGEX = r"\\\$RECYCLE\.BIN\\" # avoids trying to modify a deleted League of Legends installation
 
 def replace_sounds_with_champ(root_folder, champion):
 	rex = re.compile(r"^.*%s\.mp3\.bak"%sys.argv[1])
@@ -61,11 +61,9 @@ def find_dir(root_folder, rex):
 	for root,dirs,files in os.walk(root_folder):
 		for d in dirs:
 			full_dir = os.path.join(root,d)
-			result = rex.search(full_dir)
+			champion_directory = rex.search(full_dir)
 			bad_directory = bad.search(full_dir)
-			# print "full_dir = " + str(full_dir)
-			# print "Bad == " + str(bad_directory)
-			if result and not bad_directory:
+			if champion_directory and not bad_directory:
 				if sys.argv[1] == 'restore':
 					restore_files(full_dir)
 				else:
@@ -79,11 +77,11 @@ def find_dir_in_all_drives(dir_name):
 	rex = re.compile(dir_name)
 	drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
 	for drive in drives:
-		print "Scanning drive " + str(drive) + " for League of Legends"
+		print "Scanning drive " + str(drive) + " for League of Legends installation"
 	 	find_dir( drive, rex )
 
 if len(sys.argv) is not 2:
-	print "Wrong arguements"
+	print "Wrong arguments"
 else:
 	# http://stackoverflow.com/a/9269316/1222411
 	find_dir_in_all_drives(DIRECTORY_REGEX)

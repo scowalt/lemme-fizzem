@@ -6,18 +6,18 @@ The goal of this project was to automatically replace every champion's selection
 
 ### Usage
 
-  - `main.exe Fizz` for the classic "Lemme At'em!"
-  - `main.exe DrMundo` for "Mundo goes where he pleases"
-  - `main.exe Chamption` for anyone else
-  - `main.exe restore` will undo the changes made. **This must be done before switching champions**
+  - `fizzem.exe Fizz` for the classic "Lemme At'em!"
+  - `fizzem.exe DrMundo` for "Mundo goes where he pleases"
+  - `fizzem.exe Chamption` for anyone else
+  - `fizzem.exe restore` will undo the changes made. **This must be done before switching champions**
 
 #### Example Usage
 
-	main.exe Fizz
+	fizzem.exe Fizz
 	...
-	main.exe restore
+	fizzem.exe restore
 	...
-	main.exe DrMundo
+	fizzem.exe DrMundo
 
 ### How to Build
 
@@ -26,6 +26,11 @@ If you don't trust my shady executable and want to build the script yourself, he
   1. Install Python 2.7.x
   2. Install pyinstaller
   3. Run `pyinstaller main.py` in the project directory, with the `--onefile` flag for a single executable
+
+Of course, instead of building / using an executable, you could always just run the script directly
+
+  1. Install Python 2.7.x
+  2. Run `python main.py Fizz`
 
 ### Changelog
 
