@@ -4,11 +4,14 @@ import shutil
 import sys
 import win32api
 
+# http://stackoverflow.com/a/9269316/1222411
 DIRECTORY_REGEX = r"RADS\\projects\\lol_air_client\\releases\\(?P<version>[0-9\.]+?)\\deploy\\assets\\sounds\\(?P<language>[a-z]{2}\_[A-Z]{2}?)\\[Cc]hampions"
 BAD_REGEX = r"\\\$RECYCLE\.BIN\\" # avoids trying to modify a deleted League of Legends installation
 
 def replace_sounds_with_champ(root_folder, champion):
 	rex = re.compile(r"^.*%s\.mp3\.bak"%sys.argv[1])
+	
+	# Find sound file for champion
 	champion_file = None
 	for root,dirs,files in os.walk(root_folder):
 		for f in files:
@@ -18,11 +21,13 @@ def replace_sounds_with_champ(root_folder, champion):
 				break
 
 	if not champion_file:
+		print "Couldn't find champion " + champion
+		restore_files(root_folder)
 		return
 	
 	for root,dirs,files in os.walk(root_folder):
 		for f in files:
-			new_f = f[:len(f) - 4] #remove .bak
+			new_f = f[:len(f) - 4] #remove .bak extention from file name
 			shutil.copyfile(os.path.join(root, champion_file), os.path.join(root, new_f))
 
 
@@ -52,7 +57,6 @@ def backup_files(root_folder):
 			backed_up = rex.match(f)
 			if not backed_up:
 				new_f = f + ".bak"
-				print "Renaming " + f + " to " + new_f
 				os.rename(os.path.join(root,f), os.path.join(root, new_f))
 
 # http://stackoverflow.com/a/13068033/1222411
@@ -83,5 +87,4 @@ def find_dir_in_all_drives(dir_name):
 if len(sys.argv) is not 2:
 	print "Wrong arguments"
 else:
-	# http://stackoverflow.com/a/9269316/1222411
 	find_dir_in_all_drives(DIRECTORY_REGEX)
