@@ -6,9 +6,18 @@ The goal of this project is to automatically replace every champion's selection 
 
 ### Usage
 
-  - `main.exe Fizz`
-  - `main.exe DrMundo`
-  - `main.exe restore`
+  - `main.exe Fizz` for the classic "Lemme At'em!"
+  - `main.exe DrMundo` for "Mundo goes where he pleases"
+  - `main.exe Chamption` for anyone else
+  - `main.exe restore` will undo the changes made. **This must be done before switching champions**
+
+#### Example Usage
+
+	main.exe Fizz
+	...
+	main.exe restore
+	...
+	main.exe DrMundo
 
 ### How to Build
 
