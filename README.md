@@ -8,7 +8,7 @@ The goal of this project was to automatically replace every champion's selection
 
   - `fizzem.exe Fizz` for the classic "Lemme At'em!"
   - `fizzem.exe DrMundo` for "Mundo goes where he pleases"
-  - `fizzem.exe Chamption` for anyone else
+  - `fizzem.exe Champion` for anyone else
   - `fizzem.exe restore` will undo the changes made. **This must be done before switching champions**
 
 #### Example Usage
